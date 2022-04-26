@@ -1,0 +1,10 @@
+<aura:component
+  implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride,force:lightningQuickActionWithoutHeader"
+  access="global"
+>
+  <c:createCustomer
+    recordId="{!v.recordId}"
+    name="Create Customer"
+    oncloseEvent="{!c.handleCloseEvent}"
+  />
+</aura:component>

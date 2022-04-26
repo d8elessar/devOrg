@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>DHD</fullName>
+        <default>false</default>
+        <label>DHD</label>
+    </customValue>
+    <customValue>
+        <fullName>Question</fullName>
+        <default>false</default>
+        <label>Question</label>
+    </customValue>
+    <customValue>
+        <fullName>Lead Management</fullName>
+        <default>false</default>
+        <label>Lead Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Update</fullName>
+        <default>false</default>
+        <label>Data Update</label>
+    </customValue>
+    <customValue>
+        <fullName>Translation</fullName>
+        <default>false</default>
+        <label>Translation</label>
+    </customValue>
+    <masterLabel>CDC_CAC_CLASSIFICATION_TOPIC</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

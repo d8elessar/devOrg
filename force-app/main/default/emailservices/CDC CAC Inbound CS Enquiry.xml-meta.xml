@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailServicesFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexClass>inboundCsEnquiryEmail</apexClass>
+    <attachmentOption>All</attachmentOption>
+    <authenticationFailureAction>Discard</authenticationFailureAction>
+    <authorizationFailureAction>Discard</authorizationFailureAction>
+    <authorizedSenders>ebicus.valerio@daimler.com</authorizedSenders>
+    <emailServicesAddresses>
+        <authorizedSenders>ebicus.valerio@daimler.com</authorizedSenders>
+        <developerName>Developer</developerName>
+        <isActive>true</isActive>
+        <localPart>cdc_cac_inbound_cs_enquiry</localPart>
+        <runAsUser>alexandre.m.valerio@gmail.com</runAsUser>
+    </emailServicesAddresses>
+    <errorRoutingAddress>alexandre.m.valerio@gmail.com</errorRoutingAddress>
+    <functionInactiveAction>Discard</functionInactiveAction>
+    <functionName>CDC CAC Inbound CS Enquiry</functionName>
+    <isActive>true</isActive>
+    <isAuthenticationRequired>false</isAuthenticationRequired>
+    <isErrorRoutingEnabled>true</isErrorRoutingEnabled>
+    <isTextAttachmentsAsBinary>true</isTextAttachmentsAsBinary>
+    <isTlsRequired>false</isTlsRequired>
+    <overLimitAction>Discard</overLimitAction>
+</EmailServicesFunction>

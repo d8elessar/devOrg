@@ -1,0 +1,13 @@
+<template>
+  <lightning-card title="Customer" icon-name="standard:contact">
+    <lightning-record-form
+      object-api-name="Contact"
+      fields={fields}
+      columns="2"
+      onsubmit={handleSubmit}
+      onsuccess={handleSuccess}
+      oncancel={handleCancel}
+    >
+    </lightning-record-form>
+  </lightning-card>
+</template>

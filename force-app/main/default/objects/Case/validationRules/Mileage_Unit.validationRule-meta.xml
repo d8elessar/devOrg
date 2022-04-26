@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mileage_Unit</fullName>
+    <active>false</active>
+    <description>Mileage Unit is required if Mileage is not null</description>
+    <errorConditionFormula>CDC_CAC_Mileage__c &gt;=0 &amp;&amp; ISPICKVAL( CDC_CAC_Mileage_Unit__c , &quot;&quot;)</errorConditionFormula>
+    <errorDisplayField>CDC_CAC_Mileage_Unit__c</errorDisplayField>
+    <errorMessage>Please select a Mileage Unit</errorMessage>
+</ValidationRule>

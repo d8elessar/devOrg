@@ -1,0 +1,28 @@
+.search-results {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  margin: 0;
+}
+
+.margin-vertical-small {
+  margin: 0 4 0 4;
+}
+
+/* Small hack to format the a href in the ui-card slot */
+a {
+  text-decoration: var(--text-decoration);
+  color: var(--color-text-link);
+}
+
+.bear-tile {
+  border: 1px solid #d2955d;
+  border-radius: 0.25rem;
+  display: flex;
+  margin: 5%;
+}

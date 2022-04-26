@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GIS</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>GIS</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://compass-am.i.daimler.com/CACM4TGIS/map.aspx?type=EN_D1&amp;id=1-1XKMC12&amp;dir=f&amp;lim=n&amp;nro=n&amp;open=n&amp;rdi=y&amp;rsa=n&amp;s24h=n&amp;svc=se&amp;usr=AVALERIO&amp;div=Passenger%20Cars%20MB&amp;uptbus=N&amp;br=Mercedes-Benz&amp;num=1&amp;str=Sterre%20der%20Zeestraat&amp;ctry={!Contact.MailingCountry}&amp;pc=6227%20SC&amp;cls=E-Class&amp;cty=Maastricht</url>
+</WebLink>

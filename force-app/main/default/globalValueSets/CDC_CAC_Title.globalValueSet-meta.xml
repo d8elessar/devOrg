@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Lady</fullName>
+        <default>false</default>
+        <label>Lady</label>
+    </customValue>
+    <customValue>
+        <fullName>Sir</fullName>
+        <default>false</default>
+        <label>Sir</label>
+    </customValue>
+    <masterLabel>CDC CAC Title</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

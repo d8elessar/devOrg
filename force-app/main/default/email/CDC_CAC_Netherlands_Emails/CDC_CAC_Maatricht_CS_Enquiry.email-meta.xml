@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Dutch CS Enquiry Email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CDC CAC Maatricht CS Enquiry</name>
+    <style>none</style>
+    <subject>CAC dossier afgesloten</subject>
+    <textOnly>Hierbij informeren wij U dat dossier {!Case.CaseNumber}, {!Case.Contact} door ons gesloten werd. Het eindbericht vindt u terug in C@D. 
+
+Met vriendelijke groet, 
+
+Mercedes-Benz Customer Assistance Center Maastricht N.V. Handelsregister: K.v.K. LIMBURG 33014909, USt.-Ident.-Nr. NL 1437380B02 Bank ABN Amro Maastricht Nr. 50.14.03.078</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Corporate Information</fullName>
+        <default>false</default>
+        <label>Corporate Information</label>
+    </customValue>
+    <customValue>
+        <fullName>Dealer Enquiry</fullName>
+        <default>false</default>
+        <label>Dealer Enquiry</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Enquiry</fullName>
+        <default>false</default>
+        <label>Product Enquiry</label>
+    </customValue>
+    <customValue>
+        <fullName>Remote Field Measure Enq</fullName>
+        <default>false</default>
+        <label>Remote Field Measure Enq</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales Enquiry</fullName>
+        <default>false</default>
+        <label>Sales Enquiry</label>
+    </customValue>
+    <customValue>
+        <fullName>Service Enquiry</fullName>
+        <default>false</default>
+        <label>Service Enquiry</label>
+    </customValue>
+    <customValue>
+        <fullName>Transfer Enquiry</fullName>
+        <default>false</default>
+        <label>Transfer Enquiry</label>
+    </customValue>
+    <masterLabel>CDC_CAC_CLASSIFICATION_TYPE</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
