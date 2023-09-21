@@ -1,2 +1,7 @@
 <apex:page controller="ControllerTabOrderItem">
+    <apex:pageBlock>
+        <apex:pageBlockTable value="{!PriceBooks}" var="entry">
+            <apex:column value="{!entry.Product2.Name}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
 </apex:page>
