@@ -1,0 +1,4 @@
+<apex:page lightningStylesheets="true" standardController="Account">
+    <apex:enhancedList type="Account" height="300" rowsPerPage="10" id="AllAccounts" />
+    <apex:enhancedList type="Lead" height="300" rowsPerPage="25" id="AllOpenLeads" customizable="False" />
+</apex:page>
