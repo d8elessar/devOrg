@@ -37,6 +37,7 @@ global with sharing class ProductUpsert_REST {
             articleNoList.add(request.ArticleNo);
             inputsMap.put(request.ArticleNo + '---' + request.Language, request);
 
+            //return error in case required fields are empty
             if (String.isBlank(request.Language)) {
                 res.statusCode = 500;
                 resultList.add('Language is a required field');
