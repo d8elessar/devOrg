@@ -79,7 +79,7 @@ jobs:
               run: |
                   echo $PR_BODY > ./.github/pr_body.txt
                   node ./.github/parsePR.js              
-                  TESTS=$(cat testsToRun.txt)       
+                  TESTS=$(cat ./.github/testsToRun.txt)       
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
 
             # Prior to setting up this workflow, you have to create a Github Secret
@@ -98,11 +98,11 @@ jobs:
             - name: "Populate auth file with SFDX_URL secret of integration org"
               shell: bash
               run: |
-                  echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./SFDX_INTEGRATION_URL.txt
+                  echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./.github/SFDX_INTEGRATION_URL.txt
 
             # Authenticate to org using the URL stored in the text file
             - name: "Authenticate to Integration Org"
-              run: sf org login sfdx-url -f ./SFDX_INTEGRATION_URL.txt -s -a integration
+              run: sf org login sfdx-url -f ./.github/SFDX_INTEGRATION_URL.txt -s -a integration
 
             # We use SFDX Git Delta to create a directory with only the metadata that has changed.
             # this allows us to deploy only those changes, as opposed to deploying the entire branch.
