@@ -42,7 +42,7 @@ jobs:
               run: sfdx auth:sfdxurl:store -f ./.github/SFDX_TEST_URL.txt -s -a test
 
             - name: "Deploy the changes, with RunLocalTests option"
-              run: sf project deploy start --source-dir "changed-sources/force-app" --testlevel RunLocalTests --json
+              run: sf project deploy start --source-dir "changed-sources/force-app" --test-level RunLocalTests --json
 
             - name: "Deploy destructive changes (if any) to Test/UAT org"
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings

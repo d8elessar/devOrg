@@ -79,8 +79,22 @@ jobs:
               run: |
                   echo $PR_BODY > ./.github/pr_body.txt
                   node ./.github/parsePR.js              
-                  TESTS=$(cat testsToRun.txt)       
+                  TESTS=$(cat ./.github/testsToRun.txt)       
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+
+            # Then we install the SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
+            # This is an awesome plugin that allows us to extract a package.xml with the metadata
+            # that has changed between commits. I highly recommend going over the github readme
+            # for more information on how this works.
+
+            - name: "Installing sfdx git delta"
+              run: |
+                  echo y | sfdx plugins:install sfdx-git-delta
+                  sfdx plugins
+
+            # Install SFDX scanner
+            - name: "Installing SFDX scanner"
+              run: sfdx plugins:install @salesforce/sfdx-scanner
 
             # Prior to setting up this workflow, you have to create a Github Secret
             # that contains the sfdx url of the integration/qa org.
@@ -98,11 +112,11 @@ jobs:
             - name: "Populate auth file with SFDX_URL secret of integration org"
               shell: bash
               run: |
-                  echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./SFDX_INTEGRATION_URL.txt
+                  echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./.github/SFDX_INTEGRATION_URL.txt
 
             # Authenticate to org using the URL stored in the text file
             - name: "Authenticate to Integration Org"
-              run: sf org login sfdx-url -f ./SFDX_INTEGRATION_URL.txt -s -a integration
+              run: sf org login sfdx-url -f ./.github/SFDX_INTEGRATION_URL.txt -s -a integration
 
             # We use SFDX Git Delta to create a directory with only the metadata that has changed.
             # this allows us to deploy only those changes, as opposed to deploying the entire branch.
@@ -126,26 +140,25 @@ jobs:
 
             # Now we upload the .sarif file as explained in the previous step
             - name: Upload SARIF file
-              uses: github/codeql-action/upload-sarif@v1
+              uses: github/codeql-action/upload-sarif@v2
               with:
                   sarif_file: changed-sources/apexScanResults.sarif
 
             # We do a check-only deploy and we only run the tests specified in the PR
             # If the env variable does not equal 'all', we know that there is a list of
             # tests that can be run
-            #sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --testlevel RunSpecifiedTests --runtests ${{env.APEX_TESTS}} --json
 
             - name: "Check-only deploy delta changes - run specified tests"
               if: ${{ env.APEX_TESTS != 'all' }}
               run: |
                   echo ${{env.APEX_TESTS}}
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --runtests ${{env.APEX_TESTS}} --json
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json
 
             # If the env variable equals all, we run all tests
             - name: "Check-only deploy delta changes - run all tests"
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --testlevel RunLocalTests --json
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json
 
             - name: "Deploy destructive changes (if any)"
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
