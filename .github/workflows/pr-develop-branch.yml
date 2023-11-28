@@ -160,6 +160,7 @@ jobs:
               run: |
                   sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./
 
+            # Deploy destructive changes
             - name: "Deploy destructive changes (if any)"
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
 
