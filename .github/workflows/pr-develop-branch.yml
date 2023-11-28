@@ -152,13 +152,23 @@ jobs:
               if: ${{ env.APEX_TESTS != 'all' }}
               run: |
                   echo ${{env.APEX_TESTS}}
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./
 
             # If the env variable equals all, we run all tests
             - name: "Check-only deploy delta changes - run all tests"
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./
 
             - name: "Deploy destructive changes (if any)"
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
+
+            # Write code coverage to Pull Request
+            - name: Code Coverage Summary Report
+              if: always()
+              uses: irongut/CodeCoverageSummary@v1.3.0
+              with:
+                  filename: ./coverage/cobertura.xml
+                  badge: true
+                  format: markdown
+                  thresholds: "75 85"
