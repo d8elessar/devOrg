@@ -32,6 +32,7 @@ jobs:
               run: |
                   echo ${{ secrets.SFDX_TEST_URL}} > ./.github/SFDX_TEST_URL.txt
 
+            # Create delta package
             - name: "Create delta packages for new, modified or deleted metadata"
               run: |
                   mkdir changed-sources
