@@ -163,7 +163,7 @@ jobs:
                   node ./.github/parseError.js              
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
                   gh auth login --with-token <<< $GH_TOKEN
-                  gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $OUTPUTMD"
+                  gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $(printf '%s' "$OUTPUTMD")"
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
