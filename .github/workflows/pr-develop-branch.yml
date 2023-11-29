@@ -150,8 +150,6 @@ jobs:
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
                   set +e
-                  delimiter=$(openssl rand -hex 8)
-                  echo "output<<$delimiter" >> $GITHUB_OUTPUT
                   OUTPUT=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ | base64 | tr -d '\n')
                   echo "OUTPUT=$OUTPUT" >> $GITHUB_ENV
                   set -e
