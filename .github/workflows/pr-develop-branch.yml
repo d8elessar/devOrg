@@ -149,8 +149,8 @@ jobs:
               id: checkAllTests
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
-                  echo "output=$(cat ./.github/testsToRun.txt)" >> $GITHUB_OUTPUT
+                  output=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./  2>&1)
+                  echo "output=$output" >> $GITHUB_OUTPUT
             - name: Failure Step for checkAllTests
               if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
