@@ -12,4 +12,4 @@ data.result.details.componentFailures.forEach((failure) => {
 });
 
 // Write Markdown table to output file
-fs.writeFileSync("stepOutput.md", markdown);
+fs.writeFileSync("./.github/stepOutput.md", markdown);
