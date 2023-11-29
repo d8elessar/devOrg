@@ -150,10 +150,12 @@ jobs:
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
                   set +e
-                  output=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./  2>&1)    
+                  delimiter=$(openssl rand -hex 8)
+                  echo "output<<$delimiter" >> $GITHUB_OUTPUT
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ >> $GITHUB_OUTPUT
+                  echo "$delimiter" >> $GITHUB_OUTPUT
                   exit_code=$?
                   set -e
-                  echo "output=$output" >> $GITHUB_OUTPUT
             - name: Failure Step for checkAllTests
               if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
