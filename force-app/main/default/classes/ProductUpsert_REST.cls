@@ -198,7 +198,7 @@ global with sharing class ProductUpsert_REST {
                 recordCount++;
 
                 if (!sr.isSuccess()) {
-                    // Operation failed, so get all errors and add them to the output li
+                    // Operation failed, so get all errors and add them to the output lis
                     for (Database.Error err : sr.getErrors()) {
                         System.debug(
                             LoggingLevel.DEBUG,

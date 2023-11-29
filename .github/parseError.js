@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 // Read JSON data from input file
-const data = JSON.parse(fs.readFileSync("stepOutput.txt", "utf8"));
+const data = JSON.parse(fs.readFileSync("./.github/stepOutput.txt", "utf8"));
 
 let markdown = "| componentType | fileName | lineNumber | problem |\n| --- | --- | --- | --- |\n";
 
