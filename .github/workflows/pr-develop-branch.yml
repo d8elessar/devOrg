@@ -149,11 +149,14 @@ jobs:
               id: checkAllTests
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ || echo "::set-output name=error::$(echo $?)"
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ || echo "output=$(echo $?)" >> $GITHUB_OUTPUT
             - name: Failure Step for checkAllTests
-              if: steps.checkAllTests.outcome == 'failure'
+              if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
-                  gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: ${{ steps.checkAllTests.outputs.error }}"
+                  echo steps.checkAllTests.outputs.output > ./.github/stepOutput.txt
+                  node ./.github/parseError.js              
+                  OUTPUTMD=$(cat ./.github/stepOutput.md)
+                  gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $OUTPUTMD"
 
             # Deploy destructive changes
             - name: "Deploy destructive changes (if any)"
