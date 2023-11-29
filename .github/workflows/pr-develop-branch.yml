@@ -78,8 +78,8 @@ jobs:
               # were using a normal env variable, its value would not be available outside this step.
               run: |
                   echo $PR_BODY > ./.github/pr_body.txt
-                  node ./.github/parsePR.js              
-                  TESTS=$(cat ./.github/testsToRun.txt)       
+                  node ./.github/parsePR.js
+                  TESTS=$(cat ./.github/testsToRun.txt)
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
 
             # Prior to setting up this workflow, you have to create a Github Secret
@@ -155,8 +155,9 @@ jobs:
                   set -e
             - name: Failure Step for checkAllTests
               run: |
+                  echo "$OUTPUT"
                   echo "$OUTPUT" | base64 --decode > ./.github/stepOutput.txt
-                  node ./.github/parseError.js              
+                  node ./.github/parseError.js
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
                   gh auth login --with-token <<< $GH_TOKEN
                   gh pr review --comment -b "The deployment validation result is:\n $(printf '%s' "$OUTPUTMD")"
