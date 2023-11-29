@@ -154,7 +154,6 @@ jobs:
                   echo "OUTPUT=$OUTPUT" >> $GITHUB_ENV
                   set -e
             - name: Failure Step for checkAllTests
-              if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
                   echo "$OUTPUT" | base64 --decode > ./.github/stepOutput.txt
                   node ./.github/parseError.js              
