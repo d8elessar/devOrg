@@ -152,7 +152,7 @@ jobs:
                   output=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./)
                   echo "output=$output" >> $GITHUB_OUTPUT
             - name: Failure Step for checkAllTests
-              if: contains(steps.checkAllTests.outputs.output, 'Failed')
+              if: steps.checkAllTests.outcome == 'failure'
               run: |
                   echo steps.checkAllTests.outputs.output > ./.github/stepOutput.txt
                   node ./.github/parseError.js              
