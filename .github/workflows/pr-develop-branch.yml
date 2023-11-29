@@ -155,11 +155,12 @@ jobs:
                   sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ >> $GITHUB_OUTPUT
                   echo "$delimiter" >> $GITHUB_OUTPUT
                   exit_code=$?
+                  echo "OUTPUT=$exit_code" >> $GITHUB_ENV
                   set -e
             - name: Failure Step for checkAllTests
               if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
-                  echo "${{steps.checkAllTests.outputs.output}}" > ./.github/stepOutput.txt
+                  echo "$OUTPUT" > ./.github/stepOutput.txt
                   node ./.github/parseError.js              
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
                   gh auth login --with-token <<< $GH_TOKEN
