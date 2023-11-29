@@ -82,20 +82,6 @@ jobs:
                   TESTS=$(cat ./.github/testsToRun.txt)       
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
 
-            # Then we install the SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
-            # This is an awesome plugin that allows us to extract a package.xml with the metadata
-            # that has changed between commits. I highly recommend going over the github readme
-            # for more information on how this works.
-
-            - name: "Installing sfdx git delta"
-              run: |
-                  echo y | sfdx plugins:install sfdx-git-delta
-                  sfdx plugins
-
-            # Install SFDX scanner
-            - name: "Installing SFDX scanner"
-              run: sfdx plugins:install @salesforce/sfdx-scanner
-
             # Prior to setting up this workflow, you have to create a Github Secret
             # that contains the sfdx url of the integration/qa org.
 
