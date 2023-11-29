@@ -149,10 +149,10 @@ jobs:
               id: checkAllTests
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  output=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./)
-                  echo "output=$output" >> $GITHUB_OUTPUT
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  echo "output=$(cat ./.github/testsToRun.txt)" >> $GITHUB_OUTPUT
             - name: Failure Step for checkAllTests
-              if: steps.checkAllTests.outcome == 'failure'
+              if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
                   echo steps.checkAllTests.outputs.output > ./.github/stepOutput.txt
                   node ./.github/parseError.js              
