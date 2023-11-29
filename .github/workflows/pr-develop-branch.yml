@@ -135,16 +135,25 @@ jobs:
             # tests that can be run
 
             - name: "Check-only deploy delta changes - run specified tests"
+              id: checkSpecificTests
               if: ${{ env.APEX_TESTS != 'all' }}
               run: |
                   echo ${{env.APEX_TESTS}}
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./ || echo "::set-output name=error::$(echo $?)"
+            - name: Failure Step for checkSpecificTests
+              if: steps.checkSpecificTests.outcome == 'failure'
+              run: echo "checkSpecificTests failed"
 
             # If the env variable equals all, we run all tests
             - name: "Check-only deploy delta changes - run all tests"
+              id: checkAllTests
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./
+                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ || echo "::set-output name=error::$(echo $?)"
+            - name: Failure Step for checkAllTests
+              if: steps.checkAllTests.outcome == 'failure'
+              run: |
+                  gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: ${{ steps.checkAllTests.outputs.error }}"
 
             # Deploy destructive changes
             - name: "Deploy destructive changes (if any)"
