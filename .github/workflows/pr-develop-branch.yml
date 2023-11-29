@@ -152,14 +152,13 @@ jobs:
                   set +e
                   delimiter=$(openssl rand -hex 8)
                   echo "output<<$delimiter" >> $GITHUB_OUTPUT
-                  OUTPUT=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./)
-                  echo "$delimiter" >> $GITHUB_OUTPUT
+                  OUTPUT=$(sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ | base64 | tr -d '\n')
                   echo "OUTPUT=$OUTPUT" >> $GITHUB_ENV
                   set -e
             - name: Failure Step for checkAllTests
               if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
-                  echo "$OUTPUT" > ./.github/stepOutput.txt
+                  echo "$OUTPUT" | base64 --decode > ./.github/stepOutput.txt
                   node ./.github/parseError.js              
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
                   gh auth login --with-token <<< $GH_TOKEN
