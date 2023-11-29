@@ -242,7 +242,7 @@ global with sharing class ProductUpsert_REST {
      *@author       Alexandre Valério
      *@date         07/10/2023
      *@group        CustomWebservice
-     *@description  Input fields for this custom APEX REST Method
+     *@description  Input fields for this APEX REST Method
      */
     global class ProductUpsertRequest {
         public String IsActive;
