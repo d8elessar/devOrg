@@ -159,7 +159,7 @@ jobs:
             - name: Failure Step for checkAllTests
               if: contains(steps.checkAllTests.outputs.output, 'Failed')
               run: |
-                  echo steps.checkAllTests.outputs.output > ./.github/stepOutput.txt
+                  echo $steps.checkAllTests.outputs.output > ./.github/stepOutput.txt
                   node ./.github/parseError.js              
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
                   gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $OUTPUTMD"
