@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Cannot_change_Account</fullName>
-    <active>true</active>
-    <errorConditionFormula>ISCHANGED( AccountId ) &amp;&amp;  Enable_Update_Account__c  &lt;&gt; true</errorConditionFormula>
-    <errorDisplayField>AccountId</errorDisplayField>
-    <errorMessage>Please use the Update Account component to change the Account.</errorMessage>
-</ValidationRule>

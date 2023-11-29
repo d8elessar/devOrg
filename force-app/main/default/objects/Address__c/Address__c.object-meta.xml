@@ -161,12 +161,12 @@
     <profileSearchLayouts>
         <fields>NAME</fields>
         <fields>Type__c</fields>
-        <profileName>Standard User</profileName>
+        <profileName>System Administrator</profileName>
     </profileSearchLayouts>
     <profileSearchLayouts>
         <fields>NAME</fields>
         <fields>Type__c</fields>
-        <profileName>System Administrator</profileName>
+        <profileName>Standard User</profileName>
     </profileSearchLayouts>
     <searchLayouts>
         <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>

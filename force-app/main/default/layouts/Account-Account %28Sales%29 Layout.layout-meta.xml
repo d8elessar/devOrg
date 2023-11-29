@@ -63,6 +63,14 @@
                 <behavior>Readonly</behavior>
                 <field>ABP_Ratio__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Total_Manual__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Total_Calculado__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -384,18 +392,6 @@
             <quickActionName>SendEmail</quickActionName>
         </quickActionListItems>
     </quickActionList>
-    <relatedContent>
-        <relatedContentItems>
-            <layoutItem>
-                <component>wits:newsPanel</component>
-            </layoutItem>
-        </relatedContentItems>
-        <relatedContentItems>
-            <layoutItem>
-                <component>runtime_sales_social:socialPanel</component>
-            </layoutItem>
-        </relatedContentItems>
-    </relatedContent>
     <relatedLists>
         <fields>FULL_NAME</fields>
         <fields>CONTACT.TITLE</fields>
@@ -471,6 +467,21 @@
         <fields>PRODUCT2.CUSTOMER_PRODUCT_ID</fields>
         <fields>PRODUCT2.DESCRIPTION</fields>
         <relatedList>Product2.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>invoice_navision_id__c</fields>
+        <fields>descriptive__c</fields>
+        <fields>due_date__c</fields>
+        <fields>iban__c</fields>
+        <fields>invoice_date__c</fields>
+        <fields>number__c</fields>
+        <fields>state__c</fields>
+        <fields>total_price__c</fields>
+        <relatedList>Sample__x.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Potencial__c.Account__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

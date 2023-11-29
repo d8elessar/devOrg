@@ -5585,4 +5585,5 @@
     <label>Astro</label>
     <logPrivateConversationData>true</logPrivateConversationData>
     <richContentEnabled>false</richContentEnabled>
+    <sessionTimeout>480</sessionTimeout>
 </Bot>

@@ -341,11 +341,6 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
-                <component>wits:newsPanel</component>
-            </layoutItem>
-        </relatedContentItems>
-        <relatedContentItems>
-            <layoutItem>
                 <behavior>Readonly</behavior>
                 <field>AccountId</field>
             </layoutItem>
@@ -364,14 +359,6 @@
         <fields>ServiceDate</fields>
         <fields>Description</fields>
         <relatedList>RelatedLineItemList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>echosign_dev1__DateSentDate__c</fields>
-        <fields>echosign_dev1__Recipient__c</fields>
-        <fields>echosign_dev1__Status__c</fields>
-        <fields>echosign_dev1__Document__c</fields>
-        <relatedList>echosign_dev1__SIGN_Agreement__c.echosign_dev1__Opportunity__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>ContactName</fields>

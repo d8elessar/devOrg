@@ -6,8 +6,13 @@
         <callbackUrl>https://login.salesforce.com/services/oauth2/success</callbackUrl>
         <consumerKey>3MVG9I5UQ_0k_hTlm7RUafsunQrcR9fzeUPanFBf0wgg0To_Sk3Bricf3Q.FCLbUXBimCaxOeE3bHLu1puB44</consumerKey>
         <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
         <isConsumerSecretOptional>false</isConsumerSecretOptional>
         <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isNamedUserJwtEnabled>false</isNamedUserJwtEnabled>
+        <isPkceRequired>false</isPkceRequired>
         <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
         <scopes>Api</scopes>
     </oauthConfig>
