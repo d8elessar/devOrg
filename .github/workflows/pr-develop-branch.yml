@@ -164,7 +164,7 @@ jobs:
             - name: "Deploy destructive changes (if any)"
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
 
-            # Write code coverage to Pull Request
+            # Write code coverage to Pull Request test
             - name: Code Coverage Summary Report
               if: always()
               uses: irongut/CodeCoverageSummary@v1.3.0
