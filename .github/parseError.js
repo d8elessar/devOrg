@@ -10,7 +10,7 @@ if (data.result && data.result.details && data.result.details.componentFailures)
     markdown += "| componentType | fileName | lineNumber | problem |\n| --- | --- | --- | --- |\n";
 
     data.result.details.componentFailures.forEach((failure) => {
-        if (!failure.success) {
+        if (!failure.success && lines < 20) {
             let problem = failure.problem.replace(/(\r\n|\n|\r)/gm, " ");
             let lineNumber = failure.lineNumber ? failure.lineNumber : "N/A";
             markdown += `| ${failure.componentType} | ${failure.fileName} | ${lineNumber} | ${problem} |\n`;
