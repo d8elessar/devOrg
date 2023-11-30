@@ -161,7 +161,7 @@ jobs:
               run: |
                   node ./.github/parseError.js
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
-                  gh pr comment ${{ github.event.number }} -b "The deployment validation result is: $(printf '%s' "$OUTPUTMD")"
+                  gh pr comment ${{ github.event.number }} --body-file ./.github/stepOutput.md
               #gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $(printf '%s' "$OUTPUTMD")"
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}

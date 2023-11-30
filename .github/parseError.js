@@ -3,9 +3,10 @@ const fs = require("fs");
 // Read JSON data from input file
 const data = JSON.parse(fs.readFileSync("./.github/stepOutput.txt", "utf8"));
 
-let markdown = "\n| componentType | fileName | lineNumber | problem |\n| --- | --- | --- | --- |\n";
+let markdown = "The deployment validation result is: \n";
 
 if (data.result && data.result.details && data.result.details.componentFailures) {
+    markdown += "| componentType | fileName | lineNumber | problem |\n| --- | --- | --- | --- |\n";
     data.result.details.componentFailures.forEach((failure) => {
         if (!failure.success) {
             let problem = failure.problem.replace(/(\r\n|\n|\r)/gm, " ");
@@ -14,7 +15,7 @@ if (data.result && data.result.details && data.result.details.componentFailures)
         }
     });
 } else {
-    markdown = data.message;
+    markdown += data.message;
 }
 
 // Write Markdown table to output file
