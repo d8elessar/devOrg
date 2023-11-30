@@ -93,5 +93,7 @@
     <tabs>standard-News</tabs>
     <tabs>standard-Forecasting3</tabs>
     <tabs>Address__c</tabs>
+    <tabs>CustomAccounts</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>LightningSales_UtilityBar</utilityBar>
 </CustomApplication>

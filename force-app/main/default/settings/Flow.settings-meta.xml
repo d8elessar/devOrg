@@ -4,21 +4,23 @@
     <doesEnforceApexCpuTimeLimit>true</doesEnforceApexCpuTimeLimit>
     <doesFormulaEnforceDataAccess>true</doesFormulaEnforceDataAccess>
     <doesFormulaGenerateHtmlOutput>false</doesFormulaGenerateHtmlOutput>
+    <enableEmailSimpleRespectProfiles>true</enableEmailSimpleRespectProfiles>
     <enableFlowBREncodedFixEnabled>true</enableFlowBREncodedFixEnabled>
     <enableFlowCustomPropertyEditor>false</enableFlowCustomPropertyEditor>
     <enableFlowDeployAsActiveEnabled>false</enableFlowDeployAsActiveEnabled>
     <enableFlowFieldFilterEnabled>true</enableFlowFieldFilterEnabled>
     <enableFlowFormulasFixEnabled>true</enableFlowFormulasFixEnabled>
     <enableFlowInterviewSharingEnabled>true</enableFlowInterviewSharingEnabled>
-    <enableFlowNullPreviousValueFix>false</enableFlowNullPreviousValueFix>
+    <enableFlowNullPreviousValueFix>true</enableFlowNullPreviousValueFix>
     <enableFlowPauseEnabled>false</enableFlowPauseEnabled>
+    <enableFlowReactiveDisplayText>false</enableFlowReactiveDisplayText>
+    <enableFlowReactiveScreens>false</enableFlowReactiveScreens>
     <enableFlowUseApexExceptionEmail>false</enableFlowUseApexExceptionEmail>
-    <enableFlowViaRestUsesUserCtxt>false</enableFlowViaRestUsesUserCtxt>
+    <enableFlowViaRestUsesUserCtxt>true</enableFlowViaRestUsesUserCtxt>
     <enableLightningRuntimeEnabled>false</enableLightningRuntimeEnabled>
-    <isAccessToInvokedApexRequired>true</isAccessToInvokedApexRequired>
     <isApexPluginAccessModifierRespected>true</isApexPluginAccessModifierRespected>
     <isEnhancedFlowListViewVisible>true</isEnhancedFlowListViewVisible>
-    <isFlowApexContextRetired>false</isFlowApexContextRetired>
+    <isFlowBlockAccessToSessionIDEnabled>true</isFlowBlockAccessToSessionIDEnabled>
     <isManageFlowRequiredForAutomationCharts>false</isManageFlowRequiredForAutomationCharts>
-    <isTimeResumedInSameRunContext>false</isTimeResumedInSameRunContext>
+    <isSupportRollbackOnErrorForApexInvocableActionsEnabled>true</isSupportRollbackOnErrorForApexInvocableActionsEnabled>
 </FlowSettings>

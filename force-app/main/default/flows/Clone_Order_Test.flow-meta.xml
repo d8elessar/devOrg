@@ -13,7 +13,9 @@
                 <elementReference>OrderId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:GoToRecord</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>50.0</apiVersion>
     <assignments>

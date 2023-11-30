@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>SAPB1</label>
+    <namedCredentialReference>SAP_B1</namedCredentialReference>
+    <operations>
+        <active>true</active>
+        <name>sapx20login</name>
+    </operations>
+    <registrationProviderType>SchemaInferred</registrationProviderType>
+    <schema>{&quot;openapi&quot;:&quot;3.0.1&quot;,&quot;info&quot;:{&quot;title&quot;:&quot;SAPB1&quot;,&quot;description&quot;:&quot;&quot;},&quot;paths&quot;:{&quot;/Login&quot;:{&quot;post&quot;:{&quot;description&quot;:&quot;&quot;,&quot;operationId&quot;:&quot;SAP Login&quot;,&quot;requestBody&quot;:{&quot;content&quot;:{&quot;application/json&quot;:{&quot;schema&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;UserName&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;CompanyDB&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;Password&quot;:{&quot;type&quot;:&quot;string&quot;}}}}},&quot;required&quot;:true},&quot;responses&quot;:{&quot;2XX&quot;:{&quot;description&quot;:&quot;&quot;,&quot;content&quot;:{&quot;application/json&quot;:{&quot;schema&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;odata.metadata&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;SessionTimeout&quot;:{&quot;type&quot;:&quot;integer&quot;,&quot;format&quot;:&quot;int64&quot;},&quot;Version&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;SessionId&quot;:{&quot;type&quot;:&quot;string&quot;}}}}}}}}}}}</schema>
+    <schemaType>OpenApi3</schemaType>
+    <serviceBinding>{&quot;host&quot;:&quot;&quot;,&quot;basePath&quot;:&quot;/&quot;,&quot;allowedSchemes&quot;:[],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+    <systemVersion>4</systemVersion>
+</ExternalServiceRegistration>

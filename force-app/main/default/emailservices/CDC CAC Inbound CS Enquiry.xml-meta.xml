@@ -15,7 +15,7 @@
     <errorRoutingAddress>alexandre.m.valerio@gmail.com</errorRoutingAddress>
     <functionInactiveAction>Discard</functionInactiveAction>
     <functionName>CDC CAC Inbound CS Enquiry</functionName>
-    <isActive>true</isActive>
+    <isActive>false</isActive>
     <isAuthenticationRequired>false</isAuthenticationRequired>
     <isErrorRoutingEnabled>true</isErrorRoutingEnabled>
     <isTextAttachmentsAsBinary>true</isTextAttachmentsAsBinary>

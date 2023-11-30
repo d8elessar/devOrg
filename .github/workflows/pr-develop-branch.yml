@@ -78,23 +78,9 @@ jobs:
               # were using a normal env variable, its value would not be available outside this step.
               run: |
                   echo $PR_BODY > ./.github/pr_body.txt
-                  node ./.github/parsePR.js              
-                  TESTS=$(cat ./.github/testsToRun.txt)       
+                  node ./.github/parsePR.js
+                  TESTS=$(cat ./.github/testsToRun.txt)
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
-
-            # Then we install the SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
-            # This is an awesome plugin that allows us to extract a package.xml with the metadata
-            # that has changed between commits. I highly recommend going over the github readme
-            # for more information on how this works.
-
-            - name: "Installing sfdx git delta"
-              run: |
-                  echo y | sfdx plugins:install sfdx-git-delta
-                  sfdx plugins
-
-            # Install SFDX scanner
-            - name: "Installing SFDX scanner"
-              run: sfdx plugins:install @salesforce/sfdx-scanner
 
             # Prior to setting up this workflow, you have to create a Github Secret
             # that contains the sfdx url of the integration/qa org.
@@ -144,31 +130,38 @@ jobs:
               with:
                   sarif_file: changed-sources/apexScanResults.sarif
 
+            - name: Check if destructiveChanges file exists and set variable
+              id: check_file
+              run: |
+                  if test -f "changed-sources/destructiveChanges/destructiveChanges.xml"; then
+                    echo "FILE_EXISTS=--pre-destructive-changes changed-sources/destructiveChanges/destructiveChanges.xml" >> $GITHUB_ENV
+                  fi
+
             # We do a check-only deploy and we only run the tests specified in the PR
             # If the env variable does not equal 'all', we know that there is a list of
             # tests that can be run
 
             - name: "Check-only deploy delta changes - run specified tests"
+              id: checkSpecificTests
               if: ${{ env.APEX_TESTS != 'all' }}
               run: |
-                  echo ${{env.APEX_TESTS}}
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./
+                  set +e
+                  sf project deploy start --manifest changed-sources/package/package.xml ${{env.FILE_EXISTS}} --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  set -e
 
             # If the env variable equals all, we run all tests
             - name: "Check-only deploy delta changes - run all tests"
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./
+                  set +e
+                  sf project deploy start --manifest changed-sources/package/package.xml ${{env.FILE_EXISTS}} --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  set -e
 
-            - name: "Deploy destructive changes (if any)"
-              run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
-
-            # Write code coverage to Pull Request
-            - name: Code Coverage Summary Report
-              if: always()
-              uses: irongut/CodeCoverageSummary@v1.3.0
-              with:
-                  filename: ./coverage/cobertura.xml
-                  badge: true
-                  format: markdown
-                  thresholds: "75 85"
+            - name: Failure Step for deployment validation
+              run: |
+                  node ./.github/parseError.js
+                  OUTPUTMD=$(cat ./.github/stepOutput.md)
+                  gh pr comment ${{ github.event.number }} --body-file ./.github/stepOutput.md
+              #gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $(printf '%s' "$OUTPUTMD")"
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}

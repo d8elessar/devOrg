@@ -121,14 +121,6 @@
         <type>ConnectedApp</type>
     </appMenuItems>
     <appMenuItems>
-        <name>echosign_dev1__Adobe_Sign_Salesforce</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>echosign_dev1__EchoSign</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>Chatter_Desktop</name>
         <type>ConnectedApp</type>
     </appMenuItems>
@@ -155,5 +147,13 @@
     <appMenuItems>
         <name>Salesforce_Chatterbox</name>
         <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>User</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__DataManager</name>
+        <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>

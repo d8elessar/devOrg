@@ -48,6 +48,10 @@
                 <behavior>Readonly</behavior>
                 <field>ABP_Quantity__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>External_Order_Id__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -131,8 +135,8 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>Order.Clone_Order_Flow</actionName>
-            <actionType>QuickAction</actionType>
+            <actionName>TesteProductList</actionName>
+            <actionType>CustomButton</actionType>
             <sortOrder>0</sortOrder>
         </platformActionListItems>
         <platformActionListItems>

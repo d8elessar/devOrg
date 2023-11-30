@@ -4,7 +4,7 @@
         <name>send_email</name>
         <label>send email</label>
         <locationX>50</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -26,13 +26,15 @@
                 <stringValue>teste</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>51.0</apiVersion>
     <decisions>
         <name>teste</name>
         <label>teste</label>
         <locationX>182</locationX>
-        <locationY>158</locationY>
+        <locationY>134</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>a</name>
@@ -50,6 +52,7 @@
             <label>a</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <interviewLabel>teste {!$Flow.CurrentDateTime}</interviewLabel>
     <label>teste</label>
     <processMetadataValues>
@@ -78,5 +81,5 @@
             <targetReference>teste</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
 </Flow>

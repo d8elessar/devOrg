@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>v1</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
     <botDialogGroups>
         <developerName>Check_status_of_existing_issue</developerName>
         <label>Problemstatus prüfen</label>
@@ -106,6 +107,7 @@
         </botSteps>
         <description>Begrüßung des Benutzers und Überprüfung des Pre-Chat-Formulars, falls verwendet.</description>
         <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Willkommen</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -121,6 +123,7 @@
                 <stepIdentifier>8f147459-8db6-48b0-9116-636fbeca1b84</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>8da2888e-b9d3-4c1e-9931-1d8710f6d29b</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -150,6 +153,7 @@
         </botSteps>
         <description>Führung des Benutzers durch die Auswahl eines Gesprächsziels.</description>
         <developerName>Main_Menu</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Hauptmenü</label>
         <mlIntent>Main_Menu_Intent</mlIntent>
         <mlIntentTrainingEnabled>false</mlIntentTrainingEnabled>
@@ -209,6 +213,7 @@
                 <stepIdentifier>31fd4444-7045-4e3d-b02c-b4e67a69b815</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>fcee8b96-b9cb-4f8b-8326-ad35b5730dcc</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -296,6 +301,7 @@
                 <stepIdentifier>4b83be14-a4dc-4a0a-8987-87a30c13e385</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>188cefaf-8b78-4178-8471-5b8ea5c0518c</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -336,6 +342,7 @@
                 <stepIdentifier>5f1d0fa4-e3d8-488b-b280-1fa45769c06c</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>c84debc1-8e76-4352-83cb-f8d887201616</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -359,6 +366,7 @@
         </botSteps>
         <description>Sammeln von Informationen zu einem Problem und Erstellen eines Falls.</description>
         <developerName>Report_an_issue</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Ein Problem melden</label>
         <mlIntent>Report_an_issue_Intent</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
@@ -437,6 +445,7 @@
             <type>Wait</type>
         </botSteps>
         <developerName>Create_case</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Fall erstellen</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -574,6 +583,7 @@
         </botSteps>
         <description>Erfassen von Kundeninformationen, um Datensätze zu suchen und zu erstellen.</description>
         <developerName>Get_user_info</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Benutzerinformationen erfragen</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -651,6 +661,7 @@
                 <stepIdentifier>d0dc1c50-a293-4954-8405-229a5878cdca</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>78bac9bf-d618-4b0e-8eb7-ca92862b28b6</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -734,6 +745,7 @@
         </botSteps>
         <description>Zurückgeben des Status eines bestehenden Problems und Hinzufügen von Kommentaren.</description>
         <developerName>Check_the_status_of_an_existing_issue</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Prüfen des Status eines bestehenden Problems</label>
         <mlIntent>Check_the_status_of_an_existing_issue_Intent</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
@@ -787,6 +799,7 @@
                 <stepIdentifier>a089a9b4-fc0a-48b5-ab76-424b37265005</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>2f94c375-9f7f-400a-86e8-fec7d8741477</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -806,6 +819,7 @@
                 <stepIdentifier>d52a06fd-eba8-4788-95fd-86b142f6c428</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>f30186ce-ce73-4c09-aa22-1dada8c1ba5f</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -814,6 +828,7 @@
             <type>Wait</type>
         </botSteps>
         <developerName>Case_lookup</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Nachschlagen des Falls</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -891,6 +906,7 @@
                 <stepIdentifier>d61d121b-8d12-4b1f-8b82-d0f862dc2d31</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>f1a7f738-b8eb-49b7-bec6-6a74f7286a50</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -919,6 +935,7 @@
                 <stepIdentifier>f81c5c9a-4b0c-45da-a719-e7039d6bc6b0</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>9a91298e-7543-493d-b458-fd3db5f81249</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -927,6 +944,7 @@
             <type>Wait</type>
         </botSteps>
         <developerName>Case_found</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Fall gefunden</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -951,6 +969,7 @@
             <type>Navigation</type>
         </botSteps>
         <developerName>Case_not_found</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Fall nicht gefunden</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1017,6 +1036,7 @@
             <type>Navigation</type>
         </botSteps>
         <developerName>Add_case_comment</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Fallkommentar hinzufügen</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1094,6 +1114,7 @@
                 <stepIdentifier>814f34e7-d800-43de-8dee-12c1efd8f10d</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>82d091d3-39ba-41ee-96e1-52aa7849e29b</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1147,6 +1168,7 @@
         </botSteps>
         <description>Gibt den Status eines vorhandenen Auftrags zurück.</description>
         <developerName>Check_the_status_of_an_order</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Überprüfen des Status eines Auftrags</label>
         <mlIntent>Check_the_status_of_an_order_Intent</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
@@ -1200,6 +1222,7 @@
                 <stepIdentifier>d15f1472-a4ce-464a-9a8f-927225efb5a0</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>8c878a71-5386-49d9-9020-dcef12d4dc48</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1219,6 +1242,7 @@
                 <stepIdentifier>ed3e18e7-431c-4fac-a4f4-f701cd42986e</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>0a9a7507-311c-4e9f-8bcb-452447e8f4fa</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1227,6 +1251,7 @@
             <type>Wait</type>
         </botSteps>
         <developerName>Order_lookup</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Nachschlagen des Auftrags</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1296,6 +1321,7 @@
                 <stepIdentifier>04084bc6-f407-4511-8a17-eb3b1ab206cf</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>fca42e76-ad1f-4e6a-91df-dec22fd4551c</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1316,6 +1342,7 @@
                 <stepIdentifier>7ca97048-aa1f-48e1-bce1-7117203a289e</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>7124f598-76a7-41f3-9eb1-1bfc7f7efa90</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1324,6 +1351,7 @@
             <type>Wait</type>
         </botSteps>
         <developerName>Order_found</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Auftrag gefunden</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1348,6 +1376,7 @@
             <type>Navigation</type>
         </botSteps>
         <developerName>Order_not_found</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Auftrag nicht gefunden</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1365,6 +1394,7 @@
                 <stepIdentifier>46d13559-5925-42a0-ac16-4ff75d9975a7</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>0fe57bbb-b446-49f2-bae1-ecf6fe4b0180</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1429,6 +1459,7 @@
                 <stepIdentifier>3c8d09e3-fd4a-4c36-ab98-592a5a516dd6</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>ad887bf3-7d17-44c5-8d97-8745c6840576</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1445,6 +1476,7 @@
                 <stepIdentifier>a1a5f2b8-6e3e-45cd-96c8-a07bde1ee6df</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>26722ffb-4010-47aa-b7f4-faa5c7961e56</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1509,6 +1541,7 @@
                 <stepIdentifier>612d1bf7-3f09-4ce2-8329-cff7c31dc4a8</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>cb51c70f-a8bd-4375-8527-c5a341f9abe3</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1549,6 +1582,7 @@
                 <stepIdentifier>56d38f71-a6d2-499a-8db0-860b19a96844</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>89cacd47-ecf8-48ba-91e9-572ddaecba4f</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1564,6 +1598,7 @@
         </botSteps>
         <description>Zurücksetzen bestimmter Bot-Variablen, um neue Anfragen zu ermöglichen.</description>
         <developerName>Clear_memory</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Speicher löschen</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1624,6 +1659,7 @@
                 <stepIdentifier>d6aa4fa0-04f0-40b7-ae8f-86d70943d42a</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>2c2a3e1a-c567-4dad-9c7d-4bfcf0e6424d</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1644,6 +1680,7 @@
                 <stepIdentifier>9c6a5453-857f-4690-afea-7139dfe7c546</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>fef6b945-4322-44cc-a765-15a80e6ceac5</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1653,6 +1690,7 @@
         </botSteps>
         <description>Dem Benutzer die Möglichkeit bieten, den Chat neu zu beginnen oder zu beenden.</description>
         <developerName>Anything_else</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Kann ich noch etwas für Sie tun?</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1671,6 +1709,7 @@
         </botSteps>
         <description>Eine Nachricht senden, wenn der Bot den Benutzer nicht versteht.</description>
         <developerName>Confused</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Verwirrt</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1736,6 +1775,7 @@
                 <stepIdentifier>e5511f1c-e774-447c-b26a-ca19c527a282</stepIdentifier>
                 <type>SystemMessage</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>b64562c6-9873-4f69-9c64-41bf1c5dacf9</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1756,6 +1796,7 @@
                 <stepIdentifier>5ba220e8-3118-4500-924e-0ccd7913d33b</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>6229f1ad-9787-4466-864a-5b73891c7c7e</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1768,6 +1809,7 @@
         </botSteps>
         <description>Übergabe der Unterhaltung an einen Mitarbeiter oder eine Warteschlange.</description>
         <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>An Mitarbeiter übergeben</label>
         <mlIntent>Transfer_To_Agent_Intent</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
@@ -1838,6 +1880,7 @@
                 <stepIdentifier>cbc1b1a5-8fca-4a19-84a3-1c1776720439</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>5f23a2df-ced0-48dd-baca-8f4bdc2a6187</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1858,6 +1901,7 @@
                 <stepIdentifier>dc5e397b-9741-42a5-8bda-6aa1fd77da4a</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>d0d53123-68a2-4a12-abbf-856fee920bfa</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1867,6 +1911,7 @@
         </botSteps>
         <description>Führung des Benutzers, wenn keine Mitarbeiter für die Übergage verfügbar sind.</description>
         <developerName>No_Agent_Available</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Kein Mitarbeiter</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1888,6 +1933,7 @@
         </botSteps>
         <description>Senden einer Nachricht, wenn während der Unterhaltung ein Fehler auftritt.</description>
         <developerName>Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Fehlerbehandlung</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1936,6 +1982,7 @@
                 <stepIdentifier>6d10a64f-2ef3-41e5-acfb-6449076343b7</stepIdentifier>
                 <type>SystemMessage</type>
             </botSteps>
+            <conditionLogicType>And</conditionLogicType>
             <stepIdentifier>15bda138-6102-4cb1-ae7c-d08e40ee010e</stepIdentifier>
             <type>Group</type>
         </botSteps>
@@ -1951,11 +1998,13 @@
         </botSteps>
         <description>Beenden der Unterhaltung mit dem Bot.</description>
         <developerName>End_Chat</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Chat beenden</label>
         <mlIntent>End_Chat_Intent</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
     <conversationSystemDialogs>
         <dialog>Error_Handling</dialog>
         <type>ErrorHandling</type>
@@ -2090,9 +2139,13 @@
         <label>Kontakt</label>
     </conversationVariables>
     <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
     <mainMenuDialog>Main_Menu</mainMenuDialog>
     <nlpProviders>
         <language>de</language>
         <nlpProviderType>EinsteinAi</nlpProviderType>
     </nlpProviders>
+    <smallTalkEnabled>false</smallTalkEnabled>
 </BotVersion>

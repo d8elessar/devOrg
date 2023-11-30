@@ -5,6 +5,7 @@
     <formula>Product2.Product_Image_Link__c</formula>
     <label>Product Image Link</label>
     <required>false</required>
+    <trackHistory>false</trackHistory>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

@@ -5,6 +5,7 @@
     <formula>IMAGE( &quot;/resource/&quot; + Product2.Product_Image_Link__c ,  Product2.Name)</formula>
     <label>Product Image</label>
     <required>false</required>
+    <trackHistory>false</trackHistory>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

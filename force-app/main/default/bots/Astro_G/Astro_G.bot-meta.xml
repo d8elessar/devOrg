@@ -5583,4 +5583,5 @@
     <label>Astro G</label>
     <logPrivateConversationData>true</logPrivateConversationData>
     <richContentEnabled>false</richContentEnabled>
+    <sessionTimeout>480</sessionTimeout>
 </Bot>
