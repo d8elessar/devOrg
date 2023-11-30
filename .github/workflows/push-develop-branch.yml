@@ -14,12 +14,6 @@ jobs:
         runs-on: self-hosted
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
-            # install SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
-            - name: "Installing sfdx git delta"
-              run: |
-                  echo y | sfdx plugins:install sfdx-git-delta
-                  sfdx plugins
-
             # Checkout the source code
             - name: "Checkout source code"
               uses: actions/checkout@v3
@@ -42,8 +36,17 @@ jobs:
             - name: "Authenticate to Test/UAT Org"
               run: sfdx auth:sfdxurl:store -f ./.github/SFDX_TEST_URL.txt -s -a test
 
-            - name: "Deploy the changes, with RunLocalTests option"
-              run: sf project deploy start --source-dir "changed-sources/force-app" --test-level RunLocalTests --json
+            - name: Check if destructiveChanges file exists and set variable
+              id: check_file
+              run: |
+                  if test -f "changed-sources/destructiveChanges/destructiveChanges.xml"; then
+                    echo "FILE_EXISTS=--pre-destructive-changes changed-sources/destructiveChanges/destructiveChanges.xml" >> $GITHUB_ENV
+                  fi
 
-            - name: "Deploy destructive changes (if any) to Test/UAT org"
-              run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
+            # Deploy to org
+            - name: "Deploy delta changes - run all tests"
+              if: ${{ env.APEX_TESTS == 'all' }}
+              run: |
+                  set +e
+                  sf project deploy start --manifest changed-sources/package/package.xml ${{env.FILE_EXISTS}} --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  set -e
