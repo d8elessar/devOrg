@@ -130,6 +130,13 @@ jobs:
               with:
                   sarif_file: changed-sources/apexScanResults.sarif
 
+            - name: Check if destructiveChanges file exists and set variable
+              id: check_file
+              run: |
+                  if test -f "changed-sources/destructiveChanges/destructiveChanges.xml"; then
+                    echo "FILE_EXISTS=--pre-destructive-changes changed-sources/destructiveChanges/destructiveChanges.xml" >> $GITHUB_ENV
+                  fi
+
             # We do a check-only deploy and we only run the tests specified in the PR
             # If the env variable does not equal 'all', we know that there is a list of
             # tests that can be run
@@ -138,21 +145,19 @@ jobs:
               id: checkSpecificTests
               if: ${{ env.APEX_TESTS != 'all' }}
               run: |
-                  echo ${{env.APEX_TESTS}}
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./ || echo "::set-output name=error::$(echo $?)"
-            - name: Failure Step for checkSpecificTests
-              if: steps.checkSpecificTests.outcome == 'failure'
-              run: echo "checkSpecificTests failed"
+                  set +e
+                  sf project deploy start --source-dir "changed-sources/force-app" ${{env.FILE_EXISTS}} --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  set -e
 
             # If the env variable equals all, we run all tests
             - name: "Check-only deploy delta changes - run all tests"
-              id: checkAllTests
               if: ${{ env.APEX_TESTS == 'all' }}
               run: |
                   set +e
-                  sf project deploy start --source-dir "changed-sources/force-app" --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  sf project deploy start --source-dir "changed-sources/force-app" ${{env.FILE_EXISTS}} --dry-run --test-level RunLocalTests --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
                   set -e
-            - name: Failure Step for checkAllTests
+
+            - name: Failure Step for deployment validation
               run: |
                   node ./.github/parseError.js
                   OUTPUTMD=$(cat ./.github/stepOutput.md)
@@ -160,7 +165,3 @@ jobs:
               #gh issue create --title "Workflow failed" --body "The workflow failed on ${{ github.sha }} with error: $(printf '%s' "$OUTPUTMD")"
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-            # Deploy destructive changes
-            - name: "Deploy destructive changes (if any)"
-              run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings

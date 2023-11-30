@@ -8,7 +8,8 @@ let markdown = "\n| componentType | fileName | lineNumber | problem |\n| --- | -
 data.result.details.componentFailures.forEach((failure) => {
     if (!failure.success) {
         let problem = failure.problem.replace(/(\r\n|\n|\r)/gm, " ");
-        markdown += `| ${failure.componentType} | ${failure.fileName} | ${failure.lineNumber} | ${problem} |\n`;
+        let lineNumber = failure.lineNumber ? failure.lineNumber : "N/A";
+        markdown += `| ${failure.componentType} | ${failure.fileName} | ${lineNumber} | ${problem} |\n`;
     }
 });
 
