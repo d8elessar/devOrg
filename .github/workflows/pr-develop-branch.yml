@@ -146,7 +146,7 @@ jobs:
               if: ${{ env.APEX_TESTS != 'all' }}
               run: |
                   set +e
-                  sf project deploy start --source-dir "changed-sources/force-app" ${{env.FILE_EXISTS}} --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
+                  sf project deploy start --manifest changed-sources/package/package.xml ${{env.FILE_EXISTS}} --dry-run --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json --coverage-formatters cobertura --results-dir ./ > ./.github/stepOutput.txt
                   set -e
 
             # If the env variable equals all, we run all tests
