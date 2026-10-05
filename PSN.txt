@@ -1,0 +1,20 @@
+# --- SONY / PLAYSTATION ---
+account.sonyentertainmentnetwork.com # Account management portal.
+api.playstation.com            # Core PSN API for console-side service calls.
+app.np.ac.playstation.com      # PlayStation App notification endpoint.
+auth.api.sonyentertainmentnetwork.com # OAuth login API primary gateway.
+ca.account.sony.com            # SSO cookie endpoint for web sign-in.
+fus01.ps3.update.playstation.net # Firmware update server (PS4/PS5).
+gamelist.api.playstation.com   # Game library and played-game tracking.
+gplaystation.com               # PlayStation Store content delivery CDN.
+id.sonyentertainmentnetwork.com # Identity/sign-in redirect endpoint.
+lp1.akamaized.net              # Akamai CDN node used for PSN.
+my.account.sony.com            # Modern Sony account hub.
+my.playstation.com             # User account dashboard and profile.
+playstation.com                # Main PlayStation website and store.
+playstation.net                # PSN base domain - multiplayer and NAT.
+social.playstation.com         # Friends list and party backend.
+sonyentertainmentnetwork.com   # Root Sony Entertainment Network domain.
+store.playstation.com          # PlayStation Store (purchases, DLC).
+trophy.api.playstation.com     # Trophy sync and leaderboard data.
+www.playstation.com            # Primary web storefront.
